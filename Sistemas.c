@@ -2,8 +2,6 @@
 #define L 3
 #define C 3
 
-//Compiler version gcc  6.3.0
-
 
 void LerMatriz(double A[L][C])
 {
