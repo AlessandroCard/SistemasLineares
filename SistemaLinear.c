@@ -2,7 +2,7 @@
 #define L 3
 #define C 3
 
-
+//Printa a matriz
 void LerMatriz(double A[L][C])
 {
     for(int i = 0; i < L; i++)
@@ -16,6 +16,7 @@ void LerMatriz(double A[L][C])
     printf("\n");
 }
 
+//Troca duas linhas da matriz
 void TrocarLinha(double M[L][C], int linha1, int linha2)
 {
     double T[C];
@@ -31,6 +32,7 @@ void TrocarLinha(double M[L][C], int linha1, int linha2)
     }
 }
 
+//Atribui um valor posto pelo usuário a uma matriz
 void EscreveMatriz(int l, int c, double M[l][c])
 {
     for(int i = 0; i < l; i++)
@@ -60,7 +62,7 @@ int main()
   printf("Matriz de resultados antes da Eliminacao Gaussiana\n");
   printf("%lf\n%lf\n%lf\n\n",B[0][0],B[1][0],B[2][0]);
 
-  
+  //Eliminação Gaussiana
   for(int c = 0; c < C-1; c++)
   {
         for(int i = c + 1; i < L; i++)
@@ -69,7 +71,7 @@ int main()
             do
             {
                 l--;
-                if(A[c][c] == 0)
+                if(A[c][c] == 0) //Verifica a necessidade de trocar a linha
                 {
                     TrocarLinha(A, c, l);
                 }
@@ -80,7 +82,7 @@ int main()
                 p = 1;
                 break;
             }
-            if(A[i][c] != 0)
+            if(A[i][c] != 0)//Verifica se o elemento já está zerado
             {
                 double fator = A[i][c]/A[c][c];
                 B[i][0] -= B[c][0]*fator;
@@ -104,7 +106,7 @@ int main()
   printf("Matriz de resultados apos a Eliminacao Gaussiana\n");
   printf("%lf\n%lf\n%lf\n\n",B[0][0],B[1][0],B[2][0]);
   
-  
+//Algoritmo de substituição para encontrar as incógnitas  
 if(A[L - 1][C - 1] != 0)
 {
     for(int i = L - 1; i >= 0; i--)
