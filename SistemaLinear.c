@@ -76,7 +76,7 @@ int main()
                 {
                     TrocarLinha(A, c, l);
                 }
-            }while(A[c][c] == 0 && l > i);
+            }while(A[c][c] == 0 && l >= i);
             if(l < i)
             {
                 printf("Sistema indeterminado ou impossível\n");
