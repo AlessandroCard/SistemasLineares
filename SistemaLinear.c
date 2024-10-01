@@ -3,11 +3,11 @@
 #define C 3
 
 //Printa a matriz
-void LerMatriz(double A[L][C])
+void LerMatriz(int l, int c, double A[l][c])
 {
-    for(int i = 0; i < L; i++)
+    for(int i = 0; i < l; i++)
     {
-        for(int j = 0; j < C; j++)
+        for(int j = 0; j < c; j++)
         {
             printf("%lf ", A[i][j]);
         }
@@ -37,6 +37,7 @@ void EscreveMatriz(int l, int c, double M[l][c])
 {
     for(int i = 0; i < l; i++)
     {
+        printf("Linha %d\n", i+1);
         for(int j = 0; j < c; j++)
         {
             scanf("%lf", &M[i][j]);
@@ -57,10 +58,10 @@ int main()
   printf("Escreva a matriz de resultados\n");
   EscreveMatriz(L, 1, B);
   
-  printf("Matriz antes da Eliminacao Gaussiana\n");
-  LerMatriz(A);
+  printf("\nMatriz antes da Eliminacao Gaussiana\n");
+  LerMatriz(L, C, A);
   printf("Matriz de resultados antes da Eliminacao Gaussiana\n");
-  printf("%lf\n%lf\n%lf\n\n",B[0][0],B[1][0],B[2][0]);
+  LerMatriz(L, 1, B);
 
   //Eliminação Gaussiana
   for(int c = 0; c < C-1; c++)
@@ -102,9 +103,9 @@ int main()
   p = 0;
   
   printf("Matriz apos a Eliminacao Gaussiana\n");
-  LerMatriz(A);
+  LerMatriz(L, C, A);
   printf("Matriz de resultados apos a Eliminacao Gaussiana\n");
-  printf("%lf\n%lf\n%lf\n\n",B[0][0],B[1][0],B[2][0]);
+  LerMatriz(L, 1, B);
   
 //Algoritmo de substituição para encontrar as incógnitas  
 if(A[L - 1][C - 1] != 0)
@@ -119,7 +120,8 @@ if(A[L - 1][C - 1] != 0)
         R[i][0] = soma/A[i][i];
     }
 
-    printf("Matriz com o valor das incognitas\n%lf\n%lf\n%lf\n\n",R[0][0], R[1][0], R[2][0]);
+    printf("Matriz com o valor das incognitas\n");
+    LerMatriz(L, 1, R);
 }
 else
     printf("Sistema impossivel ou indeterminado\n");
